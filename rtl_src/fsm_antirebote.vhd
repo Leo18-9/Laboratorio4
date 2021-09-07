@@ -87,19 +87,22 @@ begin
 ------------------------------------------------------------
 	log_sal: process (clk, rst, ent)
 	begin
-		if(rst = '0') then
-			sal <= '0';
-			anterior <= ent;
-		elsif(rising_edge(clk)) then
-			case estado_presente is
-				when espera => 
-					sal <= anterior;
-				when cuenta => 
-					sal <= anterior;
-				when others =>
-					anterior <= ent;
-					sal <= ent;
-			end case;
+
+		if(rising_edge(clk)) then
+			if(rst = '0') then
+				sal <= '0';
+				anterior <= ent;
+			else
+				case estado_presente is
+					when espera => 
+						sal <= anterior;
+					when cuenta => 
+						sal <= anterior;
+					when others =>
+						anterior <= ent;
+						sal <= ent;
+				end case;
+			end if;
 		end if;
 	end process log_sal;
 

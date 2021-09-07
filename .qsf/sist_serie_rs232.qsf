@@ -75,7 +75,7 @@ set_location_assignment PIN_AB28 -to sel_frec[0]
 set_location_assignment PIN_AC27 -to sel_msj[0]
 set_location_assignment PIN_AD27 -to sel_msj[1]
 set_location_assignment PIN_E21 -to transm_act
-set_location_assignment PIN_G9 -to sal_serie
+set_location_assignment PIN_J10 -to sal_serie
 set_global_assignment -name VHDL_FILE decoBCD7seg.vhd
 set_global_assignment -name VHDL_FILE Sincro.vhd
 set_global_assignment -name VHDL_FILE rom_inf.vhd

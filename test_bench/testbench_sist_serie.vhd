@@ -36,9 +36,9 @@ begin
 			 
 ------ Generacion de Señales de simulacion -----------------
 	test_clk_50 <= not test_clk_50 after 10ns;
-	test_sel_frec <= "00", "11" after 100000us;
-	test_sel_msj <= "01", "11" after 121000us;
-	test_inicio <= '0', '1' after 400us, '0' after 800us, '1' after 142000us, '0' after 144000us;
+	test_sel_frec <= "10", "01" after 100000us;
+	test_sel_msj <= "00", "10" after 121000us;
+	test_inicio <= '1', '0' after 400us, '1' after 800us, '0' after 142000us, '1' after 144000us;
 	test_reset_asin <= '0', '1' after 50us;
 	
 end beh;

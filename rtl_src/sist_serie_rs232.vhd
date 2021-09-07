@@ -33,9 +33,10 @@ architecture beh of sist_serie_rs232 is
 	signal cont_fin, transm_activa: std_logic;
 	signal direccion: std_logic_vector(6 downto 0);
 	signal dato_inf, dato_inst, dato: std_logic_vector(7 downto 0);
-	signal bin_msj: std_logic_vector(3 downto 0);
+	signal bin_msj, bin_msj_2: std_logic_vector(3 downto 0);
 begin
 	
+	bin_msj_2 <= "00"&sel_msj;
 ------- Instanciacion de los componentes necesarios --------
 	---- Componentes de control de la frecuencia de trabajo -
 	U1: entity work.reset port map(clk => clk_50, rst => reset_asin, rst_a_s => reset_sin_50);
@@ -56,7 +57,7 @@ begin
 			en_rom_inst => en_rom_inst, sel_rom => sel_rom_dir, ini_tx => ini_transm,
 			bcd_msj => bin_msj, tx_activa => transm_activa);
 	U10: entity work.cont_dir port map(clk => clk, res => reset_sin, enable => en_cont_dir, sel => sel_msj_ant, fin_datos => cont_fin, dir => direccion);
-	U11: entity work.decoBCD7seg port map(ent => bin_msj,leds => num_msj);
+	U11: entity work.decoBCD7seg port map(ent => bin_msj_2,leds => num_msj);
 	
 	---- Componentes encargados de entregar los mensajes ----
 	---- a transmitir ---------------------------------------

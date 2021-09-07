@@ -47,10 +47,12 @@ begin
 		constant ref: std_logic_vector(ancho_cont-1 downto 0) := "1111111";
 	begin
 		
-		if(res = '0') then
-			cont := unsigned(ini);
-			primer_dato <= '0';
-		elsif(rising_edge(clk)) then
+
+		if(rising_edge(clk)) then
+			if(res = '0') then
+				cont := unsigned(ini);
+				primer_dato <= '0';
+			else
 			fin_datos <= '0';
 			--------- Seleccion del inicio y final del --------
 			--------- mensaje a transmitir --------------------
@@ -84,6 +86,7 @@ begin
 						cont := unsigned(ref);
 					end if;
 				end if;
+			end if;
 			end if;
 		end if;
 -------- Asignacion del valor de salida -----------------------

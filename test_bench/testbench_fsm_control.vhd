@@ -40,7 +40,7 @@ begin
 ------ Generacion de Señales de simulacion -----------------
 	test_clk <= not test_clk after 50us;
 	test_sel_msj <= "10";
-	test_inicio <= '0', '1' after 150us, '0' after 400us;
+	test_inicio <= '1', '0' after 150us, '1' after 400us;
 	test_reset <= '0', '1' after 50us;
 	test_fin_cont <= '0', '1' after 1450us, '0' after 1650us;
 	test_tx_activa <= '0', '1' after 549us, '0' after 849us, '1' after 1049us, '0' after 1349us;
